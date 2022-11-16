@@ -24,29 +24,5 @@ public class BlancoEspineiraSaul_Excepcion4 {
 	}
 	
 	public static void main(String[] args) {
-		try {
-			crearFichero1();
-		} catch (IOException e) {
-			try {
-				
-				e.printStackTrace(new PrintStream(new FileOutputStream("error.log",true)));
-				} catch (FileNotFoundException e1) {
-				
-				System.out.println(e.getMessage());
-				}
-			System.out.println(e.getMessage());
-		}
 		
-		try {
-			crearFichero2();
-		} catch (IOException e) {
-			try {
-			e.printStackTrace(new PrintStream(new FileOutputStream("error.log",true)));
-			} catch (FileNotFoundException e1) {
-			
-			System.out.println(e1.getMessage());
-			}
-			System.out.println(e.getMessage());
-		}
-	}
 }
