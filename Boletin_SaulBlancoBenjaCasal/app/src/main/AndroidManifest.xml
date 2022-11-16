@@ -19,9 +19,7 @@
         <activity
             android:name=".Acitivity_TablasPuntuacion"
             android:exported="false" />
-        <activity
-            android:name=".Activity_JuegoFoto"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
