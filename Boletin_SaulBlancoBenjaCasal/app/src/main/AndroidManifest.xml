@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Boletin_SaulBlancoBenjaCasal"
         tools:targetApi="31">
         <activity
-            android:name=".Activity_IntroDatosFoto"
+            android:name=".Activity_anhadir"
             android:exported="false" />
         <activity
             android:name=".Activity_TablasPuntuacion"

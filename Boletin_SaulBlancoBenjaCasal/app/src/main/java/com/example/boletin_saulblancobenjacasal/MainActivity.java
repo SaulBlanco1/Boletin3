@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Button button_Jugar;
     Button button_VerPuntuaciones;
     Button button_anhadir;
+    Button button_editelim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,13 @@ public class MainActivity extends AppCompatActivity {
         button_VerPuntuaciones=(Button) findViewById(R.id.button_VerPuntuaciones);
         button_anhadir=(Button)findViewById(R.id.button_anhadir);
         editText_IntroNombre=(EditText) findViewById(R.id.editText_IntroNombre);
-
+        button_editelim=(Button) findViewById(R.id.button_editelim);
     }
+    public void editelim(View view){
+        Intent intent = new Intent(MainActivity.this, Activity_anhadir.class);
+        startActivity(intent);
+    }
+
 
     public void anhadir(View view){
         Intent intent = new Intent(MainActivity.this, Activity_anhadir.class);

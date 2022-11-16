@@ -13,12 +13,19 @@
       android:layout_height="wrap_content"
       android:text="Tablas de puntuación"
       android:textSize="16sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/lista"
+      android:layout_width="392dp"
+      android:layout_height="595dp"
+      android:layout_marginTop="44dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.05" />
-
+      app:layout_constraintTop_toBottomOf="@+id/textView_TablasPuntuacion" />
   <Button
       android:id="@+id/button_Volver"
       android:layout_width="wrap_content"

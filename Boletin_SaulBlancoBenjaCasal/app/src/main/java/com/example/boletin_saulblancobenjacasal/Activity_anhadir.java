@@ -14,27 +14,27 @@ import android.widget.Toast;
 
 public class Activity_anhadir extends AppCompatActivity {
 
-    TextView textView_IntroNombreFoto;
-    ImageView imageView_imagen;
-    EditText editText_nombreAntiguo;
-    EditText editText_nombreNuevo;
-    EditText editText_IntroNombreFoto;
-    Button button_Crear;
-    Button button_Modificar;
-    Button button_eliminar;
+    EditText editText_resp1;
+    EditText editText_resp2;
+    EditText editText_resp3;
+    EditText editText_resp4;
+    Button button_anhadir;
+    EditText editText_Pregunta;
+    EditText editText_correct;
     int contador=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anhadir);
 
-        textView_IntroNombreFoto=(TextView) findViewById(R.id.textView_IntroNombreFoto);
-        editText_IntroNombreFoto=(EditText) findViewById(R.id.editText_IntroNombreFoto);
 
-        button_Crear=(Button) findViewById(R.id.button_Anhadir);
-
-        button_eliminar=(Button) findViewById(R.id.button_eliminar);
-
+        editText_resp1=(EditText)findViewById(R.id.editText_resp1);
+        editText_resp2=(EditText)findViewById(R.id.editText_resp2);
+        editText_resp3=(EditText)findViewById(R.id.editText_resp3);
+        editText_resp4=(EditText)findViewById(R.id.editText_resp4);
+        editText_Pregunta=(EditText)findViewById(R.id.editText_Pregunta);
+        button_anhadir=(Button) findViewById(R.id.button_Anhadir);
+        editText_correct=(EditText) findViewById(R.id.editText_correct);
 
     }
 
@@ -44,22 +44,31 @@ public class Activity_anhadir extends AppCompatActivity {
         //Abro la conexión de base de datos, con permisos de escritura para realizar las altas
         SQLiteDatabase db = adminHelper.getWritableDatabase();
 
-        //Recogemos la información que el usuario rellenó en los campos del formulario
-        String nombre = editText_IntroNombreFoto.getText().toString();
+        String pregunta=editText_Pregunta.getText().toString();
+        String resp1=editText_resp1.getText().toString();
+        String resp2=editText_resp2.getText().toString();
+        String resp3=editText_resp3.getText().toString();
+        String resp4=editText_resp4.getText().toString();
+        String respCorr=editText_correct.getText().toString();
 
         //Si no rellenó todos los valores del formulario error y no se genera alta de producto
-        if(nombre.length()==0) {
+        if(pregunta.length()==0 || resp1.length()==0 || resp2.length()==0 || resp3.length()==0 || resp4.length()==0 || respCorr.length()==0) {
             Toast.makeText(this, "Tienes datos obligatorios que rellenar", Toast.LENGTH_SHORT).show();
         } else {
-            //aumento el valor de contador que referencia al ID  de la foto
+            //aumento el valor de contador que referencia al ID  de la pregunta
             contador++;
             //Los valores están cubiertos y preparamos para alta de producto
 
             //Preparar la información anterior en un array de valores para incluirlos en la consulta de insert
             ContentValues valores = new ContentValues();
             //valores.put(<<nombre de la columna de la tabla>>, <<valor del campo>>);
-            valores.put("idfoto", contador);
-            valores.put("nombrefoto", nombre);
+            valores.put("idPregunta", contador);
+            valores.put("pregunta", pregunta);
+            valores.put("respuesta1",resp1);
+            valores.put("respuesta2",resp2);
+            valores.put("respuesta3",resp3);
+            valores.put("respuesta4",resp4);
+            valores.put("respuestacorrect",respCorr);
 
 
 
@@ -69,10 +78,15 @@ public class Activity_anhadir extends AppCompatActivity {
             //long idFila = db.insert("productos",null,valores);
 
             //En nuestro caso, la clave principal el dada por el usuario, por lo que no insteresa generarla
-            db.insert("Fotos",null,valores);
+            db.insert("Preguntas",null,valores);
 
             //Vacío los campos del formulario
-            editText_IntroNombreFoto.setText("");
+            editText_Pregunta.setText("");
+            editText_resp1.setText("");
+            editText_resp2.setText("");
+            editText_resp3.setText("");
+            editText_resp4.setText("");
+            editText_correct.setText("");
 
 
             //Mensaje informativo
@@ -83,45 +97,6 @@ public class Activity_anhadir extends AppCompatActivity {
         db.close();
     }
 
-    //Modificar información de la ficha de producto
-    public void modificar(View v){
-        //Instancio de la conexión con la Base de datos
-        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "almacen", null, 1);
-        //Abro la conexión de base de datos, con permisos de escritura para realizar las altas
-        SQLiteDatabase db = adminHelper.getWritableDatabase();
 
-        //Recogemos la información que el usuario rellenó en los campos del formulario
-        String nombreAntiguo = editText_nombreAntiguo.getText().toString();
-        String nombreNuevo = editText_nombreNuevo.getText().toString();
-
-
-        //Si no rellenó todos los valores del formulario error y no se genera alta de producto
-        if(nombreAntiguo.length()==0 || nombreNuevo.length()==0) {
-            Toast.makeText(this, "Tienes datos obligatorios que rellenar", Toast.LENGTH_SHORT).show();
-        } else {
-            //Los valores están cubiertos y preparamos para alta de producto
-
-            //Preparar la información anterior en un array de valores para incluirlos en la consulta de insert
-            ContentValues valores = new ContentValues();
-            //valores.put(<<nombre de la columna de la tabla>>, <<valor del campo>>);
-            valores.put("nombrefoto", nombreNuevo);
-
-
-            // Filtros de la consulta para aplicar en la clausula WHERE "codigo" = codigo
-            String seleccion = "nombrefoto" + " = ?";
-            String[] condicion = {nombreAntiguo};
-
-            int filasactualizadas = db.update("Fotos",valores,seleccion,condicion);
-
-            if(filasactualizadas==0){
-                Toast.makeText(this, "No se han actualizado productos", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Producto actualizado", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        //Cierro conexión con base de datos
-        db.close();
-    }
 
 }
