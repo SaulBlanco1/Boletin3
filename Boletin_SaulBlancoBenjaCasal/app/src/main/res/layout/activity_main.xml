@@ -76,35 +76,14 @@
         app:layout_constraintVertical_bias="0.05" />
 
     <Button
-        android:id="@+id/button_CrearDato"
+        android:id="@+id/button_Adminisrtrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Crear"
+        android:text="Administrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintVertical_bias="0.3" />
 
-    <Button
-        android:id="@+id/button_Editar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Editar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_CrearDato"
-        app:layout_constraintVertical_bias="0.15" />
-
-    <Button
-        android:id="@+id/button_Eliminar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Eliminar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_Editar"
-        app:layout_constraintVertical_bias="0.15" />
 </androidx.constraintlayout.widget.ConstraintLayout>
