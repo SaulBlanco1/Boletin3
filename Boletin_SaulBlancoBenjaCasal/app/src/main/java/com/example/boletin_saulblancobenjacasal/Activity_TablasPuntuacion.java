@@ -3,7 +3,7 @@ package com.example.boletin_saulblancobenjacasal;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Acitivity_TablasPuntuacion extends AppCompatActivity {
+public class Activity_TablasPuntuacion extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

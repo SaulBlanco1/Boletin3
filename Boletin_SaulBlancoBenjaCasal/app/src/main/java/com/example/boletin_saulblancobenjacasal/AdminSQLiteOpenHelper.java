@@ -16,17 +16,13 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     //Crear la tabla de productos
     public void onCreate(SQLiteDatabase db){
         final String CONSULTA_CREAR_TABLA =
-                "CREATE TABLE Jugadores (idjugador  INTEGER PRIMARY KEY,nombreusuario TEXT,puntuacionmedia decimal(2,1))";
+                "CREATE TABLE Preguntas (idPregunta  INTEGER PRIMARY KEY,pregunta TEXT,respuesta1 TEXT,respuesta2 TEXT,respuesta3 TEXT,respuesta4 TEXT,respuestacorrect TEXT)";
 
         db.execSQL(CONSULTA_CREAR_TABLA);
 
         final String CONSULTA_CREAR_TABLA2 =
-                "CREATE TABLE Partidas (npartida  INTEGER PRIMARY KEY,idjugador int,puntuacion decimal(2,1), fecha date )";
+                "CREATE TABLE Partidas (npartida  INTEGER PRIMARY KEY,nombreusuario TEXT,puntuacion decimal(2,1), fecha date )";
         db.execSQL(CONSULTA_CREAR_TABLA2);
-
-        final String CONSULTA_CREAR_TABLA3 =
-                "CREATE TABLE Fotos (idfoto  INTEGER PRIMARY KEY,nombrefoto TEXT,foto blob )";
-        db.execSQL(CONSULTA_CREAR_TABLA3);
 
     }
     //Método para hacer cambio de versión de base de datos

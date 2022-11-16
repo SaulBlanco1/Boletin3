@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editText_IntroNombre;
     Button button_Jugar;
     Button button_VerPuntuaciones;
-    Button button_Administrar;
+    Button button_anhadir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,18 +22,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         button_Jugar=(Button) findViewById(R.id.button_Jugar);
         button_VerPuntuaciones=(Button) findViewById(R.id.button_VerPuntuaciones);
-        button_Administrar=(Button)findViewById(R.id.button_Administrar);
+        button_anhadir=(Button)findViewById(R.id.button_anhadir);
         editText_IntroNombre=(EditText) findViewById(R.id.editText_IntroNombre);
 
     }
 
-    public void administrar(View view){
-        Intent intent = new Intent(MainActivity.this, Activity_IntroDatosFoto.class);
+
+
+    public void anhadir(View view){
+        Intent intent = new Intent(MainActivity.this, Activity_anhadir.class);
         startActivity(intent);
     }
 
     public void puntuaciones(View view){
-        Intent intent = new Intent(MainActivity.this, Acitivity_TablasPuntuacion.class);
+        Intent intent = new Intent(MainActivity.this, Activity_TablasPuntuacion.class);
         startActivity(intent);
     }
 }

@@ -17,7 +17,7 @@
             android:name=".Activity_IntroDatosFoto"
             android:exported="false" />
         <activity
-            android:name=".Acitivity_TablasPuntuacion"
+            android:name=".Activity_TablasPuntuacion"
             android:exported="false" />
 
         <activity
