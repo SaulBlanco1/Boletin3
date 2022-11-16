@@ -6,8 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".Activity_IntroDatosFoto">
 
+    <EditText
+        android:id="@+id/editText_nombreAntiguo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="ANTIGUO nombre"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_Crear" />
+
+    <EditText
+        android:id="@+id/editText_nombreNuevo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="NUEVO nombre"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_Modificar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_nombreAntiguo" />
+
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_imagen"
         android:layout_width="225dp"
         android:layout_height="225dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,11 +48,11 @@
         android:id="@+id/textView_IntroNombreFoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Introduzca el nombre de la persona fotgrafiada:"
+        android:text="Introduzca el nombre de la persona fotografiada:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_imagen"
         app:layout_constraintVertical_bias="0.1" />
 
     <EditText
@@ -39,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_IntroNombreFoto"
-        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintVertical_bias="0.05"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
@@ -49,9 +76,10 @@
         android:text="Crear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.21"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_IntroNombreFoto"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <Button
         android:id="@+id/button_Modificar"
@@ -61,17 +89,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_Crear"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_eliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ELiminar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_Modificar"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintStart_toEndOf="@+id/button_Crear"
+        app:layout_constraintTop_toTopOf="@+id/button_Crear" />
 </androidx.constraintlayout.widget.ConstraintLayout>
