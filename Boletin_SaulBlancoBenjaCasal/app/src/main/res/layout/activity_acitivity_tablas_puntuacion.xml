@@ -19,59 +19,13 @@
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.05" />
 
-  <TableLayout
-      android:id="@+id/tableLayout_TablaPuntuacionesHistoricas"
-      android:layout_width="match_parent"
-      android:layout_height="330dp"
-      app:layout_constraintBottom_toTopOf="@+id/tableLayout_TablaPuntuacionMediaJugador"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.0"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView_TablasPuntuacion"
-      app:layout_constraintVertical_bias="0.81">
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-  </TableLayout>
-
-  <TableLayout
-      android:id="@+id/tableLayout_TablaPuntuacionMediaJugador"
-      android:layout_width="match_parent"
-      android:layout_height="330dp"
-      android:layout_marginTop="8dp"
+  <Button
+      android:id="@+id/button_Volver"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Volver"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.0"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tableLayout_TablaPuntuacionesHistoricas">
+      app:layout_constraintStart_toStartOf="parent" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-  </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

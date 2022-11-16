@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
     public void anhadir(View view){
         Intent intent = new Intent(MainActivity.this, Activity_anhadir.class);
         startActivity(intent);
