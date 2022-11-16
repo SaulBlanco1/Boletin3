@@ -4,20 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-/*
-CRUD
-C --> Create/Crear
-R --> Read/Select
-U --> Update/Actualizar
-D --> Delete/Borrar
-
- */
-public class MainActivity extends AppCompatActivity {
+public class Activity_IntroDatosFoto extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_intro_datos_foto);
     }
 }
