@@ -82,6 +82,7 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
             //this.textView_resp3 = itemView.findViewById(R.id.textView_resp3);
             //this.textView_resp4 = itemView.findViewById(R.id.textView_resp4);
             this.textView_respcorr=itemView.findViewById(R.id.textView_respcorr);
+            Toast.makeText(itemView.getContext(), textView_idpreg.getText()+" "+textView_pregu.getText(), Toast.LENGTH_SHORT).show();
            
         }
     }
