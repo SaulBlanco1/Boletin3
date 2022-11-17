@@ -5,21 +5,26 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
 public class Activity_TablasPuntuacion extends AppCompatActivity {
 
     RecyclerView lista;
+    Button button_Volver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acitivity_tablas_puntuacion);
 
+        button_Volver = (Button)findViewById(R.id.button_Volver);
         lista=(RecyclerView) findViewById(R.id.lista);
 //Instancio de la conexión con la Base de datos
         AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "almacen", null, 1);
@@ -36,17 +41,18 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
         //Recorrer el array de resultados (cursor) para mostrar al usario la informacion
         //obtenida dentro de los campos del formulario.
         ArrayList<Pregunta> preguntas = new ArrayList<>();
-        while(cursor.moveToNext()) {
-            int idPregunta = cursor.getInt(cursor.getColumnIndex("idPregunta"));
-            String pregunta = cursor.getString(cursor.getColumnIndex("pregunta"));
-            String respuesta1 = cursor.getString(cursor.getColumnIndex("respuesta1"));
-            String respuesta2 = cursor.getString(cursor.getColumnIndex("respuesta2"));
-            String respuesta3 = cursor.getString(cursor.getColumnIndex("respuesta3"));
-            String respuesta4 = cursor.getString(cursor.getColumnIndex("respuesta4"));
-            String respuestacorr= cursor.getString(cursor.getColumnIndex("respuestacorrect"));
 
-            Pregunta producto = new Pregunta(idPregunta, pregunta, respuesta1,respuesta2,respuesta3,respuesta4,respuestacorr);
-            preguntas.add(producto);
+        while(cursor.moveToNext()) {
+            int idPregunta = cursor.getInt(cursor.getColumnIndexOrThrow("idPregunta"));
+            String pregunta = cursor.getString(cursor.getColumnIndexOrThrow("pregunta"));
+            String respuesta1 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta1"));
+            String respuesta2 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta2"));
+            String respuesta3 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta3"));
+            String respuesta4 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta4"));
+            String respuestacorr= cursor.getString(cursor.getColumnIndexOrThrow("respuestacorrect"));
+
+            Pregunta pregunta1 = new Pregunta(idPregunta, pregunta, respuesta1,respuesta2,respuesta3,respuesta4,respuestacorr);
+            preguntas.add(pregunta1);
         }
         cursor.close();
         //Cierro conexión con base de datos
@@ -57,5 +63,10 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
         lista.setLayoutManager(mLayoutManager);
         lista.setItemAnimator(new DefaultItemAnimator());
         lista.setAdapter(adaptadorPreguntas);
+    }
+
+    public void volver(View v){
+        Intent in = new Intent(Activity_TablasPuntuacion.this, MainActivity.class);
+        startActivity(in);
     }
 }
