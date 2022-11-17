@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         button_editelim=(Button) findViewById(R.id.button_editelim);
     }
     public void editelim(View view){
-        Intent intent = new Intent(MainActivity.this, Activity_anhadir.class);
+        Intent intent = new Intent(MainActivity.this, Activity_Update.class);
         startActivity(intent);
     }
 
