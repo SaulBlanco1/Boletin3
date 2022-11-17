@@ -13,7 +13,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    //Crear la tabla de productos
+    //Crear la tabla de preguntas
     public void onCreate(SQLiteDatabase db){
         final String CONSULTA_CREAR_TABLA =
                 "CREATE TABLE Preguntas (" +

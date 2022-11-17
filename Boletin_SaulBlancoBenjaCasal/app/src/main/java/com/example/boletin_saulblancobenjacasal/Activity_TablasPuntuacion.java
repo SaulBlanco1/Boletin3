@@ -29,7 +29,7 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
 
         button_Volver = (Button)findViewById(R.id.button_Volver);
         lista=(RecyclerView) findViewById(R.id.lista);
-//Instancio de la conexión con la Base de datos
+
         AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "boletin4", null, 1);
 
         //Abro la conexión de base de datos, con permisos de escritura para realizar las altas

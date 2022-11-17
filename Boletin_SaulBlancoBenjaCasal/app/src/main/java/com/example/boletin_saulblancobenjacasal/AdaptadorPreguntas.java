@@ -40,7 +40,7 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
         Pregunta pregunta = listaDepreguntas.get(i);
 
         // Obtener los datos de la lista
-        int idpreg = pregunta.getIdpregunta();
+        String idpreg = String.valueOf(pregunta.getIdpregunta());
         String preguntaInfo = pregunta.getPregunta();
         String resp1 = pregunta.getResp1();
         String resp2 = pregunta.getResp2();
