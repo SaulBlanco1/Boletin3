@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,9 +15,7 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
 
     private List<Pregunta> listaDepreguntas;
 
-    public AdaptadorPreguntas(List<Pregunta> listaDepreguntas) {
-        this.listaDepreguntas = listaDepreguntas;
-    }
+
 
     public List<Pregunta> getListaDepreguntas() {
         return listaDepreguntas;
@@ -26,6 +25,9 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
         this.listaDepreguntas = listaDepreguntas;
     }
 
+    public AdaptadorPreguntas(List<Pregunta> listaDepreguntas) {
+        this.listaDepreguntas = listaDepreguntas;
+    }
 
     @NonNull
     @Override
@@ -48,6 +50,9 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
         String resp4 = pregunta.getResp4();
         String respcorr= pregunta.getRespcorr();
 
+        Toast.makeText(holder.itemView.getContext(), idpreg+" "+pregunta, Toast.LENGTH_SHORT).show();
+        
+
         // Y poner a los TextView los datos con setText
         holder.textView_idpreg.setText(idpreg);
         holder.textView_pregu.setText(preguntaInfo);
@@ -56,6 +61,8 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
         holder.textView_resp3.setText(resp3);
         holder.textView_resp4.setText(resp4);
         holder.textView_respcorr.setText(respcorr);
+
+
     }
 
     @Override
@@ -75,6 +82,7 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
             //this.textView_resp3 = itemView.findViewById(R.id.textView_resp3);
             //this.textView_resp4 = itemView.findViewById(R.id.textView_resp4);
             this.textView_respcorr=itemView.findViewById(R.id.textView_respcorr);
+           
         }
     }
 }

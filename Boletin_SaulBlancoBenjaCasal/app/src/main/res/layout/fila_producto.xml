@@ -21,8 +21,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="pregu"
+        app:layout_constraintTop_toTopOf="@+id/textView_idpreg"
         tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView_respcorr"
@@ -31,6 +32,6 @@
         android:text="respcorr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView_pregu"
-        tools:layout_editor_absoluteY="14dp" />
+        app:layout_constraintTop_toTopOf="@+id/textView_pregu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
