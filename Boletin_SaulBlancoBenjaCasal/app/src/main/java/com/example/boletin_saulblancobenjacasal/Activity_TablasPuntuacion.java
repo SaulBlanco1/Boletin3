@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,6 +19,8 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
 
     RecyclerView lista;
     Button button_Volver;
+    int idPregunta;
+    String pregunta,respuesta1,respuesta2,respuesta3,respuesta4,respuestacorr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,7 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
         button_Volver = (Button)findViewById(R.id.button_Volver);
         lista=(RecyclerView) findViewById(R.id.lista);
 //Instancio de la conexión con la Base de datos
-        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "almacen", null, 1);
+        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "boletin4", null, 1);
 
         //Abro la conexión de base de datos, con permisos de escritura para realizar las altas
         SQLiteDatabase db = adminHelper.getReadableDatabase();
@@ -43,13 +46,13 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
         ArrayList<Pregunta> preguntas = new ArrayList<>();
 
         while(cursor.moveToNext()) {
-            int idPregunta = cursor.getInt(cursor.getColumnIndexOrThrow("idPregunta"));
-            String pregunta = cursor.getString(cursor.getColumnIndexOrThrow("pregunta"));
-            String respuesta1 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta1"));
-            String respuesta2 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta2"));
-            String respuesta3 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta3"));
-            String respuesta4 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta4"));
-            String respuestacorr= cursor.getString(cursor.getColumnIndexOrThrow("respuestacorrect"));
+             idPregunta = cursor.getInt(cursor.getColumnIndexOrThrow("idPregunta"));
+             pregunta = cursor.getString(cursor.getColumnIndexOrThrow("pregunta"));
+             respuesta1 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta1"));
+             respuesta2 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta2"));
+             respuesta3 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta3"));
+             respuesta4 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta4"));
+             respuestacorr= cursor.getString(cursor.getColumnIndexOrThrow("respuestacorrect"));
 
             Pregunta pregunta1 = new Pregunta(idPregunta, pregunta, respuesta1,respuesta2,respuesta3,respuesta4,respuestacorr);
             preguntas.add(pregunta1);
@@ -57,7 +60,7 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
         cursor.close();
         //Cierro conexión con base de datos
         db.close();
-
+        Toast.makeText(this, idPregunta+" "+pregunta+" "+respuesta1, Toast.LENGTH_SHORT).show();
         AdaptadorPreguntas adaptadorPreguntas = new AdaptadorPreguntas(preguntas);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         lista.setLayoutManager(mLayoutManager);
