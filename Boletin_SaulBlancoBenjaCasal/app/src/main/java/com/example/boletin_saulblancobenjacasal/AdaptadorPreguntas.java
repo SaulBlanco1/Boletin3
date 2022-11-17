@@ -29,13 +29,15 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
 
     @NonNull
     @Override
-    public AdaptadorPreguntas.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    //9.43 From AdaptadorPreguntas.MyViewHolder to ----> this
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View filaProducto = LayoutInflater.from(parent.getContext()).inflate(R.layout.fila_producto, parent, false);
         return new MyViewHolder(filaProducto);
     }
 
+    //9.43 From AdaptadorPreguntas.MyViewHolder to ----> this
     @Override
-    public void onBindViewHolder(@NonNull AdaptadorPreguntas.MyViewHolder holder, int i) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
         // Obtener la producto de nuestra lista gracias al índice i
         Pregunta pregunta = listaDepreguntas.get(i);
 
