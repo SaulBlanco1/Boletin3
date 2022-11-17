@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView_resp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="resp1"
+        app:layout_constraintStart_toEndOf="@+id/textView_pregu"
+        app:layout_constraintTop_toTopOf="@+id/textView_pregu" />
+
+    <TextView
+        android:id="@+id/textView_idpreg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="idpreg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01999998" />
+
+    <TextView
+        android:id="@+id/textView_pregu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pregu"
+        app:layout_constraintStart_toEndOf="@+id/textView_idpreg"
+        app:layout_constraintTop_toTopOf="@+id/textView_idpreg" />
+
+    <TextView
+        android:id="@+id/textView_resp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="resp2"
+        app:layout_constraintStart_toEndOf="@+id/textView_resp1"
+        app:layout_constraintTop_toTopOf="@+id/textView_resp1" />
+
+    <TextView
+        android:id="@+id/textView_respcorr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="respcorr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_resp4"
+        app:layout_constraintTop_toTopOf="@+id/textView_resp4" />
+
+    <TextView
+        android:id="@+id/textView_resp3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="resp3"
+        app:layout_constraintStart_toEndOf="@+id/textView_resp2"
+        app:layout_constraintTop_toTopOf="@+id/textView_resp2" />
+
+    <TextView
+        android:id="@+id/textView_resp4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="resp4"
+        app:layout_constraintStart_toEndOf="@+id/textView_resp3"
+        app:layout_constraintTop_toTopOf="@+id/textView_resp3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
