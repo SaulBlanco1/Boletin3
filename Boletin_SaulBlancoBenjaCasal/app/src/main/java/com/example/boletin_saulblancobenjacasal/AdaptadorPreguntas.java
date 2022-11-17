@@ -5,14 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas.MyViewHolder> {
+public class AdaptadorPreguntas  extends RecyclerView.Adapter<MyViewHolder> {
 
     private List<Pregunta> listaDepreguntas;
     private Context cont;
@@ -26,59 +26,56 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
         this.listaDepreguntas = listaDepreguntas;
     }
 
-    public AdaptadorPreguntas(List<Pregunta> listaDepreguntas, Context cont) {
+    public AdaptadorPreguntas(List<Pregunta> listaDepreguntas) {
         this.listaDepreguntas = listaDepreguntas;
-        this.cont=cont;
-
 
     }
 
     @NonNull
-    @Override
-    //9.43 From AdaptadorPreguntas.MyViewHolder to ----> this
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View filaPregunta =LayoutInflater.from(parent.getContext()).inflate(R.layout.fila_producto, parent, false);
+
+
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View filaPregunta =LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fila_producto, viewGroup, false);
         return new MyViewHolder(filaPregunta);
 
     }
 
     //9.43 From AdaptadorPreguntas.MyViewHolder to ----> this
-    @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
+
+    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
         // Obtener la producto de nuestra lista gracias al índice i
         Pregunta pregunta = listaDepreguntas.get(i);
 
         // Obtener los datos de la lista
         String idpreg = String.valueOf(pregunta.getIdpregunta());
         String preguntaInfo = pregunta.getPregunta();
-        String resp1 = pregunta.getResp1();
-        String resp2 = pregunta.getResp2();
-        String resp3 = pregunta.getResp3();
-        String resp4 = pregunta.getResp4();
+        //String resp1 = pregunta.getResp1();
+        //String resp2 = pregunta.getResp2();
+        //String resp3 = pregunta.getResp3();
+        //String resp4 = pregunta.getResp4();
         String respcorr= pregunta.getRespcorr();
 
 
 
 
         // Y poner a los TextView los datos con setText
-        holder.textView_idpreg.setText(idpreg);
-       holder.textView_pregu.setText(preguntaInfo);
-        holder.textView_resp1.setText(resp1);
-        holder.textView_resp2.setText(resp2);
-        holder.textView_resp3.setText(resp3);
-        holder.textView_resp4.setText(resp4);
-        holder.textView_respcorr.setText(respcorr);
+        myViewHolder.textView_idpreg.setText(idpreg);
+        myViewHolder.textView_pregu.setText(preguntaInfo);
+        //myViewHolder.textView_resp1.setText(resp1);
+        //myViewHolder.textView_resp2.setText(resp2);
+        //myViewHolder.textView_resp3.setText(resp3);
+        //myViewHolder.textView_resp4.setText(resp4);
+        myViewHolder.textView_respcorr.setText(respcorr);
 
 
     }
 
-    @Override
+
     public int getItemCount() {
-        return 0;
+        return getListaDepreguntas().size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView textView_idpreg,textView_pregu, textView_resp1,textView_resp2,textView_resp3,textView_resp4,textView_respcorr;
+
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -95,4 +92,5 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
            
         }
     }
+
 }
