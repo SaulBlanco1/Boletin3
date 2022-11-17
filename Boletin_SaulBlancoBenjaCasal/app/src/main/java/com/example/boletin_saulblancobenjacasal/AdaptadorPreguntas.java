@@ -50,8 +50,8 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
         String resp4 = pregunta.getResp4();
         String respcorr= pregunta.getRespcorr();
 
-        Toast.makeText(holder.itemView.getContext(), idpreg+" "+pregunta, Toast.LENGTH_SHORT).show();
-        
+        Toast.makeText(holder.itemView.getContext(), idpreg+" "+preguntaInfo, Toast.LENGTH_SHORT).show();
+
 
         // Y poner a los TextView los datos con setText
         holder.textView_idpreg.setText(idpreg);
