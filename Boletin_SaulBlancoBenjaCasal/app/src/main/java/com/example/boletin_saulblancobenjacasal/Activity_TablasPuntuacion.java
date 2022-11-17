@@ -62,7 +62,13 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
         //Cierro conexión con base de datos
         db.close();
 
+
         AdaptadorPreguntas adaptadorPreguntas = new AdaptadorPreguntas(preguntasArray);
+
+        //Toast.makeText(this, idPregunta+" "+pregunta, Toast.LENGTH_SHORT).show();
+
+        AdaptadorPreguntas adaptadorPreguntas = new AdaptadorPreguntas(preguntasArray,getApplicationContext());
+
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         lista.setLayoutManager(mLayoutManager);

@@ -18,6 +18,9 @@
         // android:fullBackupContent="@xml/backup_rules"
 
         <activity
+            android:name=".Activity_Juego"
+            android:exported="false" />
+        <activity
             android:name=".Activity_Update"
             android:exported="false" />
         <activity
