@@ -1,5 +1,6 @@
 package com.example.boletin_saulblancobenjacasal;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,7 @@ import java.util.List;
 public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas.MyViewHolder> {
 
     private List<Pregunta> listaDepreguntas;
-
+    private Context cont;
 
 
     public List<Pregunta> getListaDepreguntas() {
@@ -25,16 +26,20 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
         this.listaDepreguntas = listaDepreguntas;
     }
 
-    public AdaptadorPreguntas(List<Pregunta> listaDepreguntas) {
+    public AdaptadorPreguntas(List<Pregunta> listaDepreguntas, Context cont) {
         this.listaDepreguntas = listaDepreguntas;
+        this.cont=cont;
+
+
     }
 
     @NonNull
     @Override
     //9.43 From AdaptadorPreguntas.MyViewHolder to ----> this
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View filaProducto = LayoutInflater.from(parent.getContext()).inflate(R.layout.fila_producto, parent, false);
-        return new MyViewHolder(filaProducto);
+        View filaPregunta =LayoutInflater.from(parent.getContext()).inflate(R.layout.fila_producto, parent, false);
+        return new MyViewHolder(filaPregunta);
+
     }
 
     //9.43 From AdaptadorPreguntas.MyViewHolder to ----> this
@@ -52,12 +57,12 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
         String resp4 = pregunta.getResp4();
         String respcorr= pregunta.getRespcorr();
 
-        Toast.makeText(holder.itemView.getContext(), idpreg+" "+preguntaInfo, Toast.LENGTH_SHORT).show();
+
 
 
         // Y poner a los TextView los datos con setText
         holder.textView_idpreg.setText(idpreg);
-        holder.textView_pregu.setText(preguntaInfo);
+       holder.textView_pregu.setText(preguntaInfo);
         holder.textView_resp1.setText(resp1);
         holder.textView_resp2.setText(resp2);
         holder.textView_resp3.setText(resp3);
@@ -73,18 +78,19 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView textView_idpreg, textView_pregu, textView_resp1,textView_resp2,textView_resp3,textView_resp4,textView_respcorr;
+        TextView textView_idpreg,textView_pregu, textView_resp1,textView_resp2,textView_resp3,textView_resp4,textView_respcorr;
 
-        MyViewHolder(View itemView) {
+        public MyViewHolder(View itemView) {
             super(itemView);
             this.textView_idpreg = itemView.findViewById(R.id.textView_idpreg);
             this.textView_pregu = itemView.findViewById(R.id.textView_pregu);
-           // this.textView_resp1 = itemView.findViewById(R.id.textView_resp1);
+
+            //this.textView_resp1 = itemView.findViewById(R.id.textView_resp1);
             //this.textView_resp2 = itemView.findViewById(R.id.textView_resp2);
             //this.textView_resp3 = itemView.findViewById(R.id.textView_resp3);
             //this.textView_resp4 = itemView.findViewById(R.id.textView_resp4);
             this.textView_respcorr=itemView.findViewById(R.id.textView_respcorr);
-            Toast.makeText(itemView.getContext(), textView_idpreg.getText()+" "+textView_pregu.getText(), Toast.LENGTH_SHORT).show();
+
            
         }
     }

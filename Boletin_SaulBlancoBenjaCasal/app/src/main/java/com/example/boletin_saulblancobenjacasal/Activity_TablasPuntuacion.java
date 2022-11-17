@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class Activity_TablasPuntuacion extends AppCompatActivity {
 
-    RecyclerView lista;
+
     Button button_Volver;
     int idPregunta;
     String pregunta,respuesta1,respuesta2,respuesta3,respuesta4,respuestacorr;
@@ -28,7 +28,7 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
         setContentView(R.layout.activity_acitivity_tablas_puntuacion);
 
         button_Volver = (Button)findViewById(R.id.button_Volver);
-        lista=(RecyclerView) findViewById(R.id.lista);
+        RecyclerView lista=(RecyclerView) findViewById(R.id.lista);
 
         AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "boletin4", null, 1);
 
@@ -43,7 +43,7 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
 
         //Recorrer el array de resultados (cursor) para mostrar al usario la informacion
         //obtenida dentro de los campos del formulario.
-        ArrayList<Pregunta> preguntas = new ArrayList<>();
+        ArrayList<Pregunta> preguntasArray = new ArrayList<>();
 
         while(cursor.moveToNext()) {
              idPregunta = cursor.getInt(cursor.getColumnIndexOrThrow("idPregunta"));
@@ -55,13 +55,16 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
              respuestacorr= cursor.getString(cursor.getColumnIndexOrThrow("respuestacorrect"));
 
             Pregunta pregunta1 = new Pregunta(idPregunta, pregunta, respuesta1,respuesta2,respuesta3,respuesta4,respuestacorr);
-            preguntas.add(pregunta1);
+
+            preguntasArray.add(pregunta1);
         }
+      //  Toast.makeText(this, idPregunta+" "+pregunta+" "+respuesta1+" "+respuesta2+" "+respuesta3+" "+respuesta4+" "+respuestacorr, Toast.LENGTH_SHORT).show();
         cursor.close();
         //Cierro conexión con base de datos
         db.close();
-        Toast.makeText(this, idPregunta+" "+pregunta, Toast.LENGTH_SHORT).show();
-        AdaptadorPreguntas adaptadorPreguntas = new AdaptadorPreguntas(preguntas);
+
+        AdaptadorPreguntas adaptadorPreguntas = new AdaptadorPreguntas(preguntasArray,getApplicationContext());
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         lista.setLayoutManager(mLayoutManager);
         lista.setItemAnimator(new DefaultItemAnimator());
