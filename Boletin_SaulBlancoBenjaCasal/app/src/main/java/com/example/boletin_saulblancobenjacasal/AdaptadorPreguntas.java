@@ -79,7 +79,7 @@ public class AdaptadorPreguntas  extends RecyclerView.Adapter<AdaptadorPreguntas
             super(itemView);
             this.textView_idpreg = itemView.findViewById(R.id.textView_idpreg);
             this.textView_pregu = itemView.findViewById(R.id.textView_pregu);
-           // this.textView_resp1 = itemView.findViewById(R.id.textView_resp1);
+            // this.textView_resp1 = itemView.findViewById(R.id.textView_resp1);
             //this.textView_resp2 = itemView.findViewById(R.id.textView_resp2);
             //this.textView_resp3 = itemView.findViewById(R.id.textView_resp3);
             //this.textView_resp4 = itemView.findViewById(R.id.textView_resp4);

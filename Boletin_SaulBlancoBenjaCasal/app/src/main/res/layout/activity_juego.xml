@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_Juego">
+
+    <TextView
+        android:id="@+id/textView_HeaderPregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PREGUNTA"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <TextView
+        android:id="@+id/textView_PreguntaDeTurno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="La pregunta en cuestión"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_HeaderPregunta"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup_Respuestas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:saveEnabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_PreguntaDeTurno"
+        app:layout_constraintVertical_bias="0.15">
+
+        <RadioButton
+            android:id="@+id/radioButton_Respuesta1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="R1" />
+
+        <RadioButton
+            android:id="@+id/radioButton_Respuesta2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="R2" />
+
+        <RadioButton
+            android:id="@+id/radioButton_Respuesta3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="R3" />
+
+        <RadioButton
+            android:id="@+id/radioButton_Respuesta4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="R4" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button_Siguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Siguiente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup_Respuestas"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <Button
+        android:id="@+id/button_Terminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="terminar"
+        android:text="Terminar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_Siguiente"
+        app:layout_constraintVertical_bias="0.3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
