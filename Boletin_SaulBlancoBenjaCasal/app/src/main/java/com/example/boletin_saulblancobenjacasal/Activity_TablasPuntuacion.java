@@ -19,8 +19,7 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
 
 
     Button button_Volver;
-    int idPregunta;
-    String pregunta,respuesta1,respuesta2,respuesta3,respuesta4,respuestacorr;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,24 +45,24 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
         ArrayList<Pregunta> preguntasArray = new ArrayList<>();
 
         while(cursor.moveToNext()) {
-             idPregunta = cursor.getInt(cursor.getColumnIndexOrThrow("idPregunta"));
-             pregunta = cursor.getString(cursor.getColumnIndexOrThrow("pregunta"));
-             respuesta1 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta1"));
-             respuesta2 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta2"));
-             respuesta3 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta3"));
-             respuesta4 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta4"));
-             respuestacorr= cursor.getString(cursor.getColumnIndexOrThrow("respuestacorrect"));
+            int  idPregunta = cursor.getInt(cursor.getColumnIndexOrThrow("idPregunta"));
+            String pregunta = cursor.getString(cursor.getColumnIndexOrThrow("pregunta"));
+            String respuesta1 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta1"));
+            String respuesta2 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta2"));
+            String respuesta3 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta3"));
+            String respuesta4 = cursor.getString(cursor.getColumnIndexOrThrow("respuesta4"));
+            String respuestacorr= cursor.getString(cursor.getColumnIndexOrThrow("respuestacorrect"));
 
             Pregunta pregunta1 = new Pregunta(idPregunta, pregunta, respuesta1,respuesta2,respuesta3,respuesta4,respuestacorr);
 
             preguntasArray.add(pregunta1);
         }
-      //  Toast.makeText(this, idPregunta+" "+pregunta+" "+respuesta1+" "+respuesta2+" "+respuesta3+" "+respuesta4+" "+respuestacorr, Toast.LENGTH_SHORT).show();
+
         cursor.close();
         //Cierro conexión con base de datos
         db.close();
 
-        AdaptadorPreguntas adaptadorPreguntas = new AdaptadorPreguntas(preguntasArray,getApplicationContext());
+        AdaptadorPreguntas adaptadorPreguntas = new AdaptadorPreguntas(preguntasArray);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         lista.setLayoutManager(mLayoutManager);
