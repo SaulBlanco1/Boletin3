@@ -42,4 +42,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, Activity_TablasPuntuacion.class);
         startActivity(intent);
     }
+
+    public void play(View view){
+        Intent intent = new Intent(MainActivity.this, Activity_Juego.class);
+        startActivity(intent);
+    }
 }

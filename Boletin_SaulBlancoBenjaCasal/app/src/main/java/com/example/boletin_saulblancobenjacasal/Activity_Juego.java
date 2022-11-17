@@ -37,4 +37,9 @@ public class Activity_Juego extends AppCompatActivity {
         Intent in = new Intent(Activity_Juego.this, MainActivity.class);
         startActivity(in);
     }
+    
+    public void siguientePregunta(View v){
+        Intent i = new Intent(v.getContext(), Activity_Juego.class);
+        startActivity(i);
+    }
 }
