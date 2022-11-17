@@ -67,8 +67,6 @@ public class Activity_TablasPuntuacion extends AppCompatActivity {
 
         //Toast.makeText(this, idPregunta+" "+pregunta, Toast.LENGTH_SHORT).show();
 
-        AdaptadorPreguntas adaptadorPreguntas = new AdaptadorPreguntas(preguntasArray,getApplicationContext());
-
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         lista.setLayoutManager(mLayoutManager);
